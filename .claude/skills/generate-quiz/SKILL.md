@@ -7,7 +7,7 @@ description: >-
   PDF + Markdown weighted by the official NVIDIA exam blueprint. Use when the user asks
   to create/generate/build an OpenUSD or NCP-OUSD practice test, quiz, mock exam, or
   sample questions. Args (any order, all optional): a bare integer = question count
-  (default 60); medium|hard|mixed = difficulty; domain:<Name> = focus one domain;
+  (default 70); medium|hard|mixed = difficulty; domain:<Name> = focus one domain;
   seed:<int> = RNG seed.
 ---
 
@@ -38,7 +38,7 @@ All commands run from the repo root (`LearnOpenUSD/`). Scripts live in `exam/`.
 
 ## Argument parsing
 Parse arguments (any order, all optional):
-- bare integer → `count` (default **60**; official exam is 60-70)
+- bare integer → `count` (default **70**; official exam is 60-70)
 - `medium` | `hard` | `mixed` → `difficulty` (default **mixed**)
 - `domain:<Name>` → focus one domain (canonical: Composition, Content Aggregation, Customizing USD,
   Data Exchange, Data Modeling, Debugging and Troubleshooting, Pipeline Development, Visualization)

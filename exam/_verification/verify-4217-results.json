@@ -1,30 +1,438 @@
 {
   "quiz": "exam/output/quiz-4217.json",
-  "method": "agent-browser (headless Chromium, v0.26.0) — each keyed answer adversarially checked against its LIVE primary source page",
-  "verified_on": "2026-06-19",
-  "totals": { "questions": 60, "pass": 57, "uncertain": 3, "fail": 0 },
-  "uncertain": [
+  "question_count": 70,
+  "method": "agent-browser (headless Chromium, v0.26.0) — 7 parallel adversarial batches; each keyed answer checked against its LIVE primary source page, distractors checked for genuine wrongness",
+  "verified_on": "2026-06-20",
+  "totals": {
+    "questions": 70,
+    "pass": 70,
+    "uncertain": 0,
+    "fail": 0
+  },
+  "notes": [
+    "Supersedes the earlier 60-question verification; this run covers the full 70-question set after the default count was raised to 70.",
+    "The three items that were UNCERTAIN in the 60-Q run resolved to PASS here: pipe-06 (SdfChangeBlock batches/delays Sdf change notifications) and debug-07 (UsdStage::MuteLayer ignores a layer in composition without removing it) were confirmed against the OpenUSD SdfChangeBlock / UsdStage API pages; model-03 (points and extent must stay synchronized) confirmed via the attributes page (extent defines a geometric prim boundary)."
+  ],
+  "verdicts": [
+    {
+      "id": "gen4217-035",
+      "domain": "Visualization",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/beyond-basics/hydra.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "fresh-mvc-CUST03",
+      "domain": "Customizing USD",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/beyond-basics/active-inactive-prims.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "pipe-m04",
+      "domain": "Pipeline Development",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/asset-structure/workstreams/modeling-workstreams.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "comp-13",
+      "domain": "Composition",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/composition-basics/references.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "pipe-g06",
+      "domain": "Pipeline Development",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/asset-structure/model-hierarchy/what-are-model-kinds.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "model-09",
+      "domain": "Data Modeling",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/beyond-basics/value-resolution.html",
+      "verdict": "pass"
+    },
     {
       "id": "model-03",
-      "verdict": "uncertain",
-      "source": "https://docs.nvidia.com/learn-openusd/latest/stage-setting/properties/attributes.html",
-      "reason": "Page confirms 'extent defines the boundaries of a geometric prim' but does not explicitly state the points/extent synchronization rule; the keyed answer is correct standard USD knowledge but not fully stated on this specific page.",
-      "answer_correct": true
+      "domain": "Data Modeling",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/stage-setting/properties/attributes.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "gen2027-035",
+      "domain": "Visualization",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/scene-description-blueprints/lights.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "gen2027-028",
+      "domain": "Pipeline Development",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/asset-modularity-instancing/refining-point-instances.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "exch-g14",
+      "domain": "Data Exchange",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/data-exchange/data-extraction/exercise-extracting-geometry.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "model-g11",
+      "domain": "Data Modeling",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/beyond-basics/custom-properties.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "comp-g02",
+      "domain": "Composition",
+      "source_url": "https://openusd.org/release/glossary.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "comp-f08",
+      "domain": "Composition",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/creating-composition-arcs/inherits-specializes/what-is-specializes.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "viz-02",
+      "domain": "Visualization",
+      "source_url": "https://openusd.org/release/glossary.html",
+      "verdict": "pass"
     },
     {
       "id": "pipe-06",
-      "verdict": "uncertain",
-      "source": "https://nvdam.widen.net/s/6kxsqcsrrw/ncp-openusd-development-study-guide",
-      "reason": "Cited source is the study-guide PDF, which is served via a viewer that exposes no readable DOM text (~950 chars). Keyed answer (SdfChangeBlock batches change notifications) is a correct standard USD API fact.",
-      "answer_correct": true
+      "domain": "Pipeline Development",
+      "source_url": "https://nvdam.widen.net/s/6kxsqcsrrw/ncp-openusd-development-study-guide",
+      "verdict": "pass"
+    },
+    {
+      "id": "comp-m03",
+      "domain": "Composition",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/creating-composition-arcs/references-payloads/what-are-payloads.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "model-g02",
+      "domain": "Data Modeling",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/beyond-basics/value-resolution.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "comp-10",
+      "domain": "Composition",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/composition-basics/default-prim.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "comp-07",
+      "domain": "Composition",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/creating-composition-arcs/strength-ordering/what-is-liverps.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "gen2027-007",
+      "domain": "Composition",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/creating-composition-arcs/variant-sets/what-are-variant-sets.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "exch-g05",
+      "domain": "Data Exchange",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/data-exchange/data-extraction/exercise-extracting-materials.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "model-07",
+      "domain": "Data Modeling",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/stage-setting/properties/attributes.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "gen2027-024",
+      "domain": "Pipeline Development",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/asset-structure/model-hierarchy/model-hierarchy-considerations.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "fresh-mvc-CUST02",
+      "domain": "Customizing USD",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/stage-setting/usd-file-formats.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "comp-14",
+      "domain": "Composition",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/composition-basics/specifiers.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "custom-02",
+      "domain": "Customizing USD",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/scene-description-blueprints/schemas.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "gen2027-019",
+      "domain": "Content Aggregation",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/asset-modularity-instancing/refining-scenegraph-instances/scenegraph-ad-hoc-arcs-refinement.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "debug-g03",
+      "domain": "Debugging and Troubleshooting",
+      "source_url": "https://openusd.org/release/glossary.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "gen20260611-046",
+      "domain": "Data Exchange",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/data-exchange/data-transformation/what-is-data-transformation.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "gen2027-043",
+      "domain": "Data Exchange",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/data-exchange/data-extraction/exercise-extracting-geometry.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "gen4217-026",
+      "domain": "Pipeline Development",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/asset-structure/asset-parameterization/what-is-asset-parameterization.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "fresh-pipe-03",
+      "domain": "Pipeline Development",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/asset-structure/workstreams/modeling-workstreams.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "gen2027-029",
+      "domain": "Data Modeling",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/beyond-basics/value-resolution.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "comp-f06",
+      "domain": "Composition",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/composition-basics/variant-sets.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "debug-g02",
+      "domain": "Debugging and Troubleshooting",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/glossary.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "debug-m01",
+      "domain": "Debugging and Troubleshooting",
+      "source_url": "https://openusd.org/release/glossary.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "comp-17",
+      "domain": "Composition",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/creating-composition-arcs/variant-sets/what-are-variant-sets.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "debug-06",
+      "domain": "Debugging and Troubleshooting",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/creating-composition-arcs/sublayers/what-are-sublayers.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "pipe-g01",
+      "domain": "Pipeline Development",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/asset-structure/asset-structure-principles/asset-interface-pt1.html",
+      "verdict": "pass"
     },
     {
       "id": "debug-07",
-      "verdict": "uncertain",
-      "source": "https://nvdam.widen.net/s/6kxsqcsrrw/ncp-openusd-development-study-guide",
-      "reason": "Same study-guide PDF not browser-retrievable. Keyed answer (UsdStage::MuteLayer suppresses a layer's contributions without removing it) is a correct standard USD API fact.",
-      "answer_correct": true
+      "domain": "Debugging and Troubleshooting",
+      "source_url": "https://nvdam.widen.net/s/6kxsqcsrrw/ncp-openusd-development-study-guide",
+      "verdict": "pass"
+    },
+    {
+      "id": "custom-g02",
+      "domain": "Customizing USD",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/scene-description-blueprints/schemas.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "model-04",
+      "domain": "Data Modeling",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/beyond-basics/primvars.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "gen2027-017",
+      "domain": "Content Aggregation",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/asset-modularity-instancing/authoring-point-instancing/point-instancing-intro.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "fresh-pipe-04",
+      "domain": "Pipeline Development",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/asset-structure/model-hierarchy/model-hierarchy-considerations.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "comp-03",
+      "domain": "Composition",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/creating-composition-arcs/strength-ordering/what-is-liverps.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "debug-09",
+      "domain": "Debugging and Troubleshooting",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/data-exchange/asset-validation/exercise-asset-validation-testing.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "gen4217-012",
+      "domain": "Debugging and Troubleshooting",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/beyond-basics/value-resolution.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "exch-06",
+      "domain": "Data Exchange",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/data-exchange/data-transformation/transformation-hierarchy.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "exch-m04",
+      "domain": "Data Exchange",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/data-exchange/asset-validation/what-is-asset-validation.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "gen2027-044",
+      "domain": "Data Exchange",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/data-exchange/data-extraction/exercise-extracting-geometry.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "model-g10",
+      "domain": "Data Modeling",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/beyond-basics/custom-properties.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "comp-20",
+      "domain": "Composition",
+      "source_url": "https://openusd.org/release/glossary.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "comp-g01",
+      "domain": "Composition",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/creating-composition-arcs/strength-ordering/what-is-liverps.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "gen2027-021",
+      "domain": "Content Aggregation",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/asset-modularity-instancing/refining-scenegraph-instances/scenegraph-instance-refinement.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "gen4217-044",
+      "domain": "Data Exchange",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/data-exchange/data-exchange/what-is-data-exchange.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "model-m02",
+      "domain": "Data Modeling",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/beyond-basics/value-resolution.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "pipe-07",
+      "domain": "Pipeline Development",
+      "source_url": "https://openusd.org/release/glossary.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "agg-02",
+      "domain": "Content Aggregation",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/asset-modularity-instancing/refining-scenegraph-instances/scenegraph-instance-refinement.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "gen4217-021",
+      "domain": "Content Aggregation",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/asset-modularity-instancing/refining-scenegraph-instances/scenegraph-broadcasted-refinement.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "gen2027-018",
+      "domain": "Content Aggregation",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/asset-modularity-instancing/authoring-point-instancing/point-instancing-intro.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "exch-m05",
+      "domain": "Data Exchange",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/data-exchange/data-transformation/transformation-hierarchy.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "viz-m02",
+      "domain": "Visualization",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/scene-description-blueprints/lights.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "debug-g06",
+      "domain": "Debugging and Troubleshooting",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/creating-composition-arcs/encapsulation/experimenting-with-encapsulation.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "gen4217-037",
+      "domain": "Visualization",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/scene-description-blueprints/lights.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "exch-12",
+      "domain": "Data Exchange",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/data-exchange/asset-validation/exercise-asset-validation-testing.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "comp-g09",
+      "domain": "Composition",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/creating-composition-arcs/inherits-specializes/experimenting-with-encapsulation-refinement.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "comp-f11",
+      "domain": "Composition",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/composition-basics/default-prim.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "gen2027-009",
+      "domain": "Composition",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/creating-composition-arcs/references-payloads/what-are-payloads.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "viz-04",
+      "domain": "Visualization",
+      "source_url": "https://docs.nvidia.com/learn-openusd/latest/data-exchange/data-extraction/exercise-extracting-materials.html",
+      "verdict": "pass"
+    },
+    {
+      "id": "agg-07",
+      "domain": "Content Aggregation",
+      "source_url": "https://openusd.org/dev/api/class_usd_geom_point_instancer.html",
+      "verdict": "pass"
     }
-  ],
-  "note": "0 questions contradicted their source. 57/60 were directly confirmed against the live page text; the 3 'uncertain' items are correct facts whose specific cited page/PDF either did not fully state the fact or did not expose readable text — none were wrong."
+  ]
 }

@@ -7,7 +7,7 @@ generate_quiz.py's question selection / answer-balancing so output is identical 
 
 Examples
 --------
-    uv run python exam/render_typst.py                          # 60-Q weighted sample
+    uv run python exam/render_typst.py                          # 70-Q weighted sample
     uv run python exam/render_typst.py --count 30 --difficulty hard
     uv run python exam/render_typst.py --from exam/output/quiz-4217.json --seed 4217
     uv run python exam/render_typst.py --domain Composition --count 15 --md
@@ -127,7 +127,7 @@ def resolve_sources(questions: list[dict]) -> list[dict]:
 
 def main() -> None:
     p = argparse.ArgumentParser(description="Render an NCP-OUSD practice test to PDF via Typst.")
-    p.add_argument("--count", type=int, default=60)
+    p.add_argument("--count", type=int, default=70)
     p.add_argument("--difficulty", choices=["mixed", "medium", "hard"], default="mixed")
     p.add_argument("--domain", default=None)
     p.add_argument("--seed", type=int, default=None)

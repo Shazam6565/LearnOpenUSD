@@ -11,7 +11,7 @@ Arguments: $ARGUMENTS
 
 ## Argument parsing
 Parse `$ARGUMENTS` (any order, all optional):
-- bare integer → `count` (default **60**; official exam is 60-70)
+- bare integer → `count` (default **70**; official exam is 60-70)
 - `medium` | `hard` | `mixed` → `difficulty` (default **mixed**)
 - `domain:<Name>` → focus one domain (canonical: Composition, Content Aggregation, Customizing USD,
   Data Exchange, Data Modeling, Debugging and Troubleshooting, Pipeline Development, Visualization)

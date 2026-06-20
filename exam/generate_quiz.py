@@ -7,7 +7,7 @@ pdflatex. Deterministic given --seed.
 
 Examples
 --------
-    uv run python exam/generate_quiz.py                          # 60-Q weighted exam
+    uv run python exam/generate_quiz.py                          # 70-Q weighted exam
     uv run python exam/generate_quiz.py --count 30 --difficulty hard
     uv run python exam/generate_quiz.py --domain Composition --count 15
     uv run python exam/generate_quiz.py --seed 7 --md
@@ -365,7 +365,7 @@ def render_from(args) -> None:
 
 def main() -> None:
     p = argparse.ArgumentParser(description="Generate an NCP-OUSD practice-test PDF.")
-    p.add_argument("--count", type=int, default=60, help="number of questions (default 60)")
+    p.add_argument("--count", type=int, default=70, help="number of questions (default 70)")
     p.add_argument("--difficulty", choices=["mixed", "medium", "hard"], default="mixed")
     p.add_argument("--domain", default=None,
                    help="focus all questions on one domain (e.g. 'Composition')")
