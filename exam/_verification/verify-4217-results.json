@@ -1,0 +1,30 @@
+{
+  "quiz": "exam/output/quiz-4217.json",
+  "method": "agent-browser (headless Chromium, v0.26.0) — each keyed answer adversarially checked against its LIVE primary source page",
+  "verified_on": "2026-06-19",
+  "totals": { "questions": 60, "pass": 57, "uncertain": 3, "fail": 0 },
+  "uncertain": [
+    {
+      "id": "model-03",
+      "verdict": "uncertain",
+      "source": "https://docs.nvidia.com/learn-openusd/latest/stage-setting/properties/attributes.html",
+      "reason": "Page confirms 'extent defines the boundaries of a geometric prim' but does not explicitly state the points/extent synchronization rule; the keyed answer is correct standard USD knowledge but not fully stated on this specific page.",
+      "answer_correct": true
+    },
+    {
+      "id": "pipe-06",
+      "verdict": "uncertain",
+      "source": "https://nvdam.widen.net/s/6kxsqcsrrw/ncp-openusd-development-study-guide",
+      "reason": "Cited source is the study-guide PDF, which is served via a viewer that exposes no readable DOM text (~950 chars). Keyed answer (SdfChangeBlock batches change notifications) is a correct standard USD API fact.",
+      "answer_correct": true
+    },
+    {
+      "id": "debug-07",
+      "verdict": "uncertain",
+      "source": "https://nvdam.widen.net/s/6kxsqcsrrw/ncp-openusd-development-study-guide",
+      "reason": "Same study-guide PDF not browser-retrievable. Keyed answer (UsdStage::MuteLayer suppresses a layer's contributions without removing it) is a correct standard USD API fact.",
+      "answer_correct": true
+    }
+  ],
+  "note": "0 questions contradicted their source. 57/60 were directly confirmed against the live page text; the 3 'uncertain' items are correct facts whose specific cited page/PDF either did not fully state the fact or did not expose readable text — none were wrong."
+}

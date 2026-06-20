@@ -1,16 +1,43 @@
-# /generate-quiz
+---
+name: generate-quiz
+description: >-
+  Generate an NCP-OUSD (NVIDIA OpenUSD Development) practice exam. Each run freshly
+  authors source-grounded, adversarially verified questions via inference sub-agents
+  (>=80% brand-new, <=20% reused from the bank), then assembles, lints, and renders to
+  PDF + Markdown weighted by the official NVIDIA exam blueprint. Use when the user asks
+  to create/generate/build an OpenUSD or NCP-OUSD practice test, quiz, mock exam, or
+  sample questions. Args (any order, all optional): a bare integer = question count
+  (default 60); medium|hard|mixed = difficulty; domain:<Name> = focus one domain;
+  seed:<int> = RNG seed.
+---
+
+# generate-quiz
 
 Generate an NCP-OUSD practice test where **every quiz is freshly authored by inference each run**
 (≥80% brand-new questions, ≤20% reused from the bank). Fresh questions are source-grounded and
 adversarially verified before they ship, then appended to the bank so the pool grows.
 
-Arguments: $ARGUMENTS
-
 > This is NOT a static sampler. Each run uses inference (sub-agents) to write new questions, so it
-> takes ~2-5 minutes and real tokens. That is intended.
+> takes ~2-5 minutes and real tokens. That is intended. (For a quick static sample from the existing
+> bank with no inference, run `uv run python exam/generate_quiz.py --md` directly instead.)
+
+All commands run from the repo root (`LearnOpenUSD/`). Scripts live in `exam/`.
+
+## Environment prerequisites (verify before a full run)
+- **`uv`** — required (the scripts run under `uv run python`). Present in this environment.
+- **`typst`** — required for the default (LaTeX-free) PDF render via `render_typst.py`
+  (`brew install typst`; installed in this environment). Renders the same NVIDIA-styled layout
+  with clickable source links. The legacy `generate_quiz.py` renderer instead needs `pdflatex`
+  (MacTeX/BasicTeX), which is NOT installed here — prefer `render_typst.py`.
+- **Grounding corpus** — the authoring step (step 2) grounds new questions in scraped page text at
+  `exam/_verification/pages/<key>` and `exam/_verification/pages_official/<key>.txt`. These dirs are
+  **gitignored and absent in a fresh clone**. If they are empty, author agents cannot grep the corpus
+  to ground/verify facts — either scrape the pages first (agent-browser over the URLs in
+  `exam/source_map.json` / `exam/_verification/all_urls.txt`) or stick to bank-reuse generation.
+  The 335-question bank and its verified `source_ref`s already exist, so reuse-only output works.
 
 ## Argument parsing
-Parse `$ARGUMENTS` (any order, all optional):
+Parse arguments (any order, all optional):
 - bare integer → `count` (default **60**; official exam is 60-70)
 - `medium` | `hard` | `mixed` → `difficulty` (default **mixed**)
 - `domain:<Name>` → focus one domain (canonical: Composition, Content Aggregation, Customizing USD,
@@ -74,13 +101,13 @@ uv run python exam/render_typst.py --from exam/output/quiz-<seed>.json --difficu
 drops duplicates, picks the ≤20% reuse set, writes `exam/output/quiz-<seed>.json`, and APPENDS the
 fresh questions to `question_bank.json`. `lint` is the distractor-quality gate — if it flags any
 question, send those back to the author agents for repair and re-assemble before rendering. The
-final command renders the PDF via **Typst** (NVIDIA-styled with clickable source links) plus a
-Markdown sidecar — no LaTeX needed. (Legacy `pdflatex` path: `uv run python exam/generate_quiz.py
---from exam/output/quiz-<seed>.json … --md`.)
+final command renders the PDF via **Typst** (NVIDIA-styled, clickable source links) plus a Markdown
+sidecar — no LaTeX required. (Legacy alternative needing `pdflatex`:
+`uv run python exam/generate_quiz.py --from exam/output/quiz-<seed>.json … --md`.)
 
 ### 5. Report
 State: the fresh/reuse split (must be ≥80% fresh), how many candidates failed verification and why,
-the domain distribution, the new bank size, and the PDF path. Offer to open the PDF.
+the domain distribution, the new bank size, and the PDF (or Markdown) path. Offer to open the output.
 
 ## Style (official voice — match the study-guide samples)
 Self-contained, concise (prose stems ≤~220 chars), generic-professional or direct-conceptual. Exemplars:
@@ -95,5 +122,5 @@ references, no narrative props (warehouses/pallets/named artists).
   unsourced question. Sources resolve via `exam/source_map.json`; exam facts (weights/duration) from
   `exam/official_guidelines.json`.
 - Fresh questions are appended to `exam/question_bank.json` (deduped by stem), so the reuse pool deepens.
-- Examples: `/generate-quiz` · `/generate-quiz 70 hard` · `/generate-quiz domain:Composition 20` ·
-  `/generate-quiz 60 hard seed:7`.
+- Examples: `generate-quiz` · `generate-quiz 70 hard` · `generate-quiz domain:Composition 20` ·
+  `generate-quiz 60 hard seed:7`.
